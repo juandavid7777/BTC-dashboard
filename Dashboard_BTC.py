@@ -7,6 +7,7 @@ Created on Wed Nov 17 09:19:21 2021
 
 import streamlit as st
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import pandas as pd
 from datetime import datetime
 
