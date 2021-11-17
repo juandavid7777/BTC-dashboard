@@ -42,7 +42,7 @@ fig.add_trace(go.Scatter(
     y=df["plus_3STDV"],
     mode = 'lines',
     name = '99.9%',
-    line = dict(width = 1, dash = 'dash', color = "red"),
+    line = dict(width = 0.5, dash = 'dash', color = "red"),
     ))
 
 fig.add_trace(go.Scatter(
@@ -50,7 +50,7 @@ fig.add_trace(go.Scatter(
     y=df["plus_2STDV"],
     mode = 'lines',
     name = '97.8%',
-    line = dict(width = 1, dash = 'dash', color = "yellow"),
+    line = dict(width = 0.5, dash = 'dash', color = "yellow"),
     fill='tonexty',
     fillcolor='rgba(245, 66, 66,0.2)'  #Red
     ))
@@ -60,7 +60,7 @@ fig.add_trace(go.Scatter(
     y=df["plus_1STDV"],
     mode = 'lines',
     name = '84.2%',
-    line = dict(width = 1, dash = 'dash', color = "green"),\
+    line = dict(width = 0.5, dash = 'dash', color = "green"),\
     fill='tonexty',
     fillcolor='rgba(245, 230, 66,0.2)'  #yellow
     ))
@@ -81,7 +81,7 @@ fig.add_trace(go.Scatter(
     y=df["minus_1STDV"],
     mode = 'lines',
     name = '15.8%',
-    line = dict(width = 1, dash = 'dash', color = "green"),
+    line = dict(width = 0.5, dash = 'dash', color = "green"),
     fill='tonexty',
     fillcolor='rgba(0, 199, 56,0.2)'  #green
     ))
@@ -91,7 +91,7 @@ fig.add_trace(go.Scatter(
     y=df["minus_2STDV"],
     mode = 'lines',
     name = '2.2%',
-    line = dict(width = 1, dash = 'dash', color = "yellow"),
+    line = dict(width = 0.5, dash = 'dash', color = "yellow"),
     fill='tonexty',
     fillcolor='rgba(245, 230, 66,0.2)'  #Yellow
     ))
@@ -101,7 +101,7 @@ fig.add_trace(go.Scatter(
     y=df["minus_3STDV"],
     mode = 'lines',
     name = '0.1%',
-    line = dict(width = 1, dash = 'dash', color = "red"),
+    line = dict(width = 0.5, dash = 'dash', color = "red"),
     fill='tonexty',
     fillcolor='rgba(245, 66, 66,0.2)'  #Red
     ))
