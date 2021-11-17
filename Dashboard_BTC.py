@@ -128,7 +128,6 @@ fig.update_layout(
 fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
-#4.-----Generates streamlit chart
 st.plotly_chart(fig)
 
 
@@ -159,5 +158,42 @@ fig.update_layout(
 
 fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+
+st.plotly_chart(fig)
+
+#======================== Risk metric chart ========================================
+
+# Create figure with secondary y-axis
+fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+fig.add_trace(go.Scatter(
+    x=df['Date'],
+    y=df["close"],
+    mode = 'lines',
+    name = 'Price',
+    line = dict(width = 2.0, color = "white")
+    ),secondary_y=False)
+
+fig.add_trace(go.Scatter(
+    x=df['Date'],
+    y=df["norm_dist"],
+    mode = 'lines',
+    name = 'Risk metric',
+    line = dict(width = 1.0, color = "orange")
+    ),secondary_y=True)
+
+#Defines figure properties
+fig.update_layout(
+    title = coin_name + " uncertainity metric",
+    xaxis_title= "Date",
+    yaxis_title= coin_name + " price (USD)",
+    
+    plot_bgcolor = "black",
+    yaxis_type="log",
+    xaxis_rangeslider_visible=False)
+
+fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey', secondary_y = False)
+fig.update_yaxes(title = "Risk metric (0 - 1)", showgrid=True, gridwidth=1, gridcolor='pink', secondary_y = True)
 
 st.plotly_chart(fig)
