@@ -106,6 +106,14 @@ fig.add_trace(go.Scatter(
     fillcolor='rgba(245, 66, 66,0.2)'  #Red
     ))
 
+fig.add_trace(go.Scatter(
+    x=df['Date'],
+    y=df["close"],
+    mode = 'lines',
+    name = '',
+    line = dict(width = 1.0, color = "white")
+    ))
+
 #Defines figure properties
 fig.update_layout(
     title = coin_name + " uncertainity bands",
@@ -116,6 +124,9 @@ fig.update_layout(
     plot_bgcolor = "black",
     yaxis_type="log",
     xaxis_rangeslider_visible=False)
+
+fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
+fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
 #4.-----Generates streamlit chart
 st.plotly_chart(fig)
