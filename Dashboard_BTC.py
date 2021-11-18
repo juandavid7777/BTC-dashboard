@@ -27,6 +27,14 @@ projected_days = 180
 fig = go.Figure()
 
 #Price candlesticks plots
+fig.add_trace(go.Scatter(
+    x=df['Date'],
+    y=df["close"],
+    mode = 'lines',
+    name = '',
+    line = dict(width = 0.5, color = "white")
+    ))
+
 fig.add_trace(go.Candlestick(
     x=df['Date'],
     open=df['open'],
@@ -71,7 +79,7 @@ fig.add_trace(go.Scatter(
     y=df["price_reg"],
     mode = 'lines',
     name = '50.0%',
-    line = dict(width = 1.5, dash = 'dash', color = "grey"),
+    line = dict(width = 1.0, dash = 'dash', color = "grey"),
     fill='tonexty',
     fillcolor='rgba(0, 199, 56,0.2)'  #green
     ))
@@ -106,12 +114,34 @@ fig.add_trace(go.Scatter(
     fillcolor='rgba(245, 66, 66,0.2)'  #Red
     ))
 
+#Peaks
 fig.add_trace(go.Scatter(
     x=df['Date'],
-    y=df["close"],
+    y=df["peak_price_plus_STDV"],
     mode = 'lines',
-    name = '',
-    line = dict(width = 1.0, color = "white")
+    name = 'Peak upper bound',
+    line = dict(width = 0.5, dash = 'solid', color = "orange"),
+    showlegend=False
+    ))
+
+fig.add_trace(go.Scatter(
+    x=df['Date'],
+    y=df["peak_price_minus_STDV"],
+    mode = 'lines',
+    name = 'Peak lower bound',
+    line = dict(width = 0.5, dash = 'solid', color = "orange"),
+    fill='tonexty',
+    fillcolor='rgba(245, 182, 66,0.5)',  #Red
+    showlegend=False
+    ))
+
+fig.add_trace(go.Scatter(
+    x=df['Date'],
+    y=df["peak_price"],
+    mode = 'lines',
+    name = 'Peak prediction',
+    line = dict(width = 0.8, dash = 'dot', color = "orange"),
+    showlegend=True
     ))
 
 #Defines figure properties
